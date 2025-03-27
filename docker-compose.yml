@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: user_db
-      POSTGRES_PASSWORD: user_pass
+      POSTGRES_PASSWORD: pass_db
       POSTGRES_DB_PORT: "5432"
       POSTGRES_DB_HOST: "localhost"
       POSTGRES_DB: test_db
