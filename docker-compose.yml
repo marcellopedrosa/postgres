@@ -1,20 +1,20 @@
-version: '3'
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: user_db
+      POSTGRES_PASSWORD: user_pass
+      POSTGRES_DB_PORT: "5432"
+      POSTGRES_DB_HOST: "localhost"
+      POSTGRES_DB: test_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
 volumes:
   postgres_data:
-      driver: local
-
-services:
-  db_sv:
-      image: postgres:9.5
-      container_name: db_sv
-      ports:
-        - "5432:5432"
-      volumes:
-        - postgres_data:/var/lib/postgresql/
-      environment:
-        POSTGRES_DB_PORT: "5432"
-        POSTGRES_DB_HOST: "localhost"
-        POSTGRES_DB: db_sunview
-        POSTGRES_USER: sunview
-        POSTGRES_PASSWORD: sunview
